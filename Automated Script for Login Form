@@ -1,0 +1,42 @@
+package program;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ById;
+import org.openqa.selenium.WebDriver;
+
+public class selenium {
+
+	private static WebDriver d;
+
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+System.setProperty("webdriver.com.driver", "C:\\Program Files\\Google\\Chrome\\Application\\105.0.5195.127\\chrome.exe.sig");
+setD((WebDriver) new ChromeDriver());	
+d.get("https://the-internet.herokuapp.com/login");
+d.findElement(ById.id("username")).sendKeys("samsmith");
+d.findElement(ById.id("password")).sendKeys("SuperSecretPassword!");	
+d.findElement(By.xpath("//*[@id=\"login\"]")).click();
+	String u;
+	u = d.getCurrentUrl();
+	if(u.equals("https://the-internet.herokuapp.com/login"));
+	{
+		System.out.println("Test Case Passed");
+		}
+	
+	{
+		System.out.println("Test Case Failed");
+	}
+		
+	}
+	
+		
+	public static WebDriver getD() {
+		return d;
+	}
+
+	public static void setD(WebDriver d) {
+		selenium.d = d;
+	}
+}
